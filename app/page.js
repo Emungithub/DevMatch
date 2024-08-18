@@ -197,9 +197,6 @@ export default function Home() {
                       <li>Patient Log</li>
                     </Link>
                     
-                    <Link href="/login">
-                      <li>Login As Patient</li>
-                    </Link>
                 </ul>
 
                 {/* Right Section */}

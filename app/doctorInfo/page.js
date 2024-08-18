@@ -219,9 +219,9 @@ export default function Home() {
                     <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=Anon" alt="Anonymous Patient" className="w-50 h-50 mr-4" />
                 </div>
                     
-                <h2 className="text-lg font-semibold text-center">Dr. Wong Yee Hao</h2>
-                <p className="text-center text-sm">Psychology</p>
-                <p className="text-center text-sm text-gray-500">Setapak</p>
+                <h2 className="text-lg font-semibold text-center">Dr. John Lee Xing</h2>
+                <p className="text-center text-sm">Pediatrician</p>
+                <p className="text-center text-sm text-gray-500">Dr John Clinic Setapak</p>
                 <div className="flex justify-center space-x-2 my-4">
                     <span className="bg-purple-200 text-purple-700 rounded-full px-3 py-1 text-xs">
                         in-person
@@ -256,9 +256,9 @@ export default function Home() {
                     <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=Anon" alt="Anonymous Patient" className="w-50 h-50 mr-4" />
                 </div>
                     
-                <h2 className="text-lg font-semibold text-center">Dr. Wong Yee Hao</h2>
-                <p className="text-center text-sm">Psychology</p>
-                <p className="text-center text-sm text-gray-500">Setapak</p>
+                <h2 className="text-lg font-semibold text-center">Dr. Wong Yee Xiong</h2>
+                <p className="text-center text-sm">Cardiologist</p>
+                <p className="text-center text-sm text-gray-500">Hospital Bukit Jalil</p>
                 <div className="flex justify-center space-x-2 my-4">
                     <span className="bg-purple-200 text-purple-700 rounded-full px-3 py-1 text-xs">
                         in-person
@@ -293,9 +293,9 @@ export default function Home() {
                     <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=Anon" alt="Anonymous Patient" className="w-50 h-50 mr-4" />
                 </div>
                     
-                <h2 className="text-lg font-semibold text-center">Dr. Wong Yee Hao</h2>
-                <p className="text-center text-sm">Psychology</p>
-                <p className="text-center text-sm text-gray-500">Setapak</p>
+                <h2 className="text-lg font-semibold text-center">Dr. Leong Ee Mun</h2>
+                <p className="text-center text-sm">Dermatologist</p>
+                <p className="text-center text-sm text-gray-500">Gleneagles Kuala Lumpur</p>
                 <div className="flex justify-center space-x-2 my-4">
                     <span className="bg-purple-200 text-purple-700 rounded-full px-3 py-1 text-xs">
                         in-person
@@ -330,9 +330,9 @@ export default function Home() {
                     <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=Anon" alt="Anonymous Patient" className="w-50 h-50 mr-4" />
                 </div>
                     
-                <h2 className="text-lg font-semibold text-center">Dr. Wong Yee Hao</h2>
-                <p className="text-center text-sm">Psychology</p>
-                <p className="text-center text-sm text-gray-500">Setapak</p>
+                <h2 className="text-lg font-semibold text-center">Dr. Bevvy Pang Ee Tong</h2>
+                <p className="text-center text-sm">Neurologist</p>
+                <p className="text-center text-sm text-gray-500">Hospital Kuala Lumpur</p>
                 <div className="flex justify-center space-x-2 my-4">
                     <span className="bg-purple-200 text-purple-700 rounded-full px-3 py-1 text-xs">
                         in-person

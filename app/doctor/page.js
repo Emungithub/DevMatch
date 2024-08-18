@@ -174,6 +174,20 @@ export default function Home() {
   const togglePatientRecordVisibility = () => {
     setIsPatientRecordVisible(!isPatientRecordVisible);
   };
+  
+  //when click save and record, new record added
+
+  const [isSaved, setIsSavedAllowed] = useState(false);
+
+  const handleSavedAllowAccess = () => {
+    setIsSavedAllowed(true);
+  };
+
+  const [seeDetails, setSeeDetailsAllowed] = useState(false);
+
+  const handleSeeDetailsAllowAccess = () => {
+    setSeeDetailsAllowed(true);
+  };
 
   
 
@@ -202,9 +216,6 @@ export default function Home() {
                       <li>Patient Log</li>
                     </Link>
                     
-                    <Link href="/login">
-                      <li>Login As Patient</li>
-                    </Link>
                 </ul>
 
                 {/* Right Section */}
@@ -266,20 +277,20 @@ export default function Home() {
           <thead>
             <tr>
               <th className="text-left py-2 px-4 border-b">Patient</th>
-              <th className="text-left py-2 px-4 border-b">Public Key</th>
+              <th className="text-left py-2 px-4 border-b">Client Key</th>
               <th className="text-left py-2 px-4 border-b">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td className="py-2 px-4 border-b">Leong Ee Mun</td>
-              <td className="py-2 px-4 border-b">0xd216e651b17d2a0a4095932ee5674b064bf0217b</td>
+              <td className="py-2 px-4 border-b">0xa2B6BB2B7811Dbe3af0b348D1c164098C914e075</td>
               <td className="py-2 px-4 border-b">
                 <button 
                   onClick={toggleRecordVisibility} 
                   className={`px-4 py-2 rounded-md ${isRecordVisible ? 'bg-red-500 text-white' : 'bg-blue-500 text-white'}`}
                 >
-                  {isRecordVisible ? 'Hide Records' : 'View Records'}
+                  {isRecordVisible ? 'Hide Records' : 'Edit Records'}
                 </button>
               </td>
             </tr>
@@ -293,14 +304,14 @@ export default function Home() {
             <thead>
               <tr>
                 <th className="text-left py-2 px-4 border-b">Patient</th>
-                <th className="text-left py-2 px-4 border-b">Public Key</th>
+                <th className="text-left py-2 px-4 border-b">Client Key</th>
                 <th className="text-left py-2 px-4 border-b">Action</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td className="py-2 px-4 border-b">Leong Ee Mun</td>
-                <td className="py-2 px-4 border-b">0xd216e651b17d2a0a4095932ee5674b064bf0217b</td>
+                <td className="py-2 px-4 border-b">0xa2B6BB2B7811Dbe3af0b348D1c164098C914e075</td>
                 <td className="py-2 px-4 border-b">
                   <button 
                     onClick={togglePatientRecordVisibility} 
@@ -358,7 +369,18 @@ export default function Home() {
                       <div className="mb-6">
                         <h3 className="text-lg font-semibold">Medical History</h3>
                         <div className="p-4 bg-gray-100 rounded-md mb-4 ">
-                          <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
+                          <div onClick={handleSeeDetailsAllowAccess} style={{ maxHeight: '300px', overflowY: 'auto' }}>
+                            {/* add new div content when clicked */}
+                            {isSaved && (<div  style={{display: 'flex', justifyContent: 'space-between' }} className="p-4 bg-gray-100 rounded-md mb-4 border-b border-gray-300">
+                              <div>
+                                <p><strong>Diagnosis: </strong>Stroke</p>
+                                <p style={{ fontStyle: 'italic', color: '#808080'}} > Dr. John, Columbia Asia Hospital Setapak</p>
+                              </div>
+                              <div>
+                                <p>18/08/2024</p>
+                              </div>
+                            </div>
+                            )}
                             {/* 1 div content  */}
                             <div  style={{display: 'flex', justifyContent: 'space-between' }} className="p-4 bg-gray-100 rounded-md mb-4 border-b border-gray-300">
                               <div>
@@ -407,7 +429,7 @@ export default function Home() {
                     {/* Right Section */}
                     <div className="mb-6">
                         <h3 className="text-lg font-semibold">Details</h3>
-                        <div style={{ maxHeight: '330px', overflowY: 'auto' }} className="p-4 bg-gray-100 rounded-md">
+                        {!seeDetails && (<div style={{ maxHeight: '330px', overflowY: 'auto' }} className="p-4 bg-gray-100 rounded-md">
                           <strong>Attended Doctor:</strong> 
                           <p>Dr. John Lee</p><br></br>
                           <strong>Practice Address:</strong> 
@@ -424,6 +446,43 @@ export default function Home() {
                           Ibuprofen (Advil, Motrin): 400 mg orally every 4-6 hours as needed for fever. Do not exceed 3,200 mg per day.
                           </p>
                         </div>
+                        )}
+
+                        {seeDetails && (<div style={{ maxHeight: '330px', overflowY: 'auto' }} className="p-4 bg-gray-100 rounded-md">
+                          <strong>Attended Doctor:</strong> 
+                          <p>Dr. John Lee</p><br></br>
+                          <strong>Practice Address:</strong> 
+                          <p>Columbia Asia Hospital Setapak</p><br></br>
+                          <strong>Date & Time:</strong> 
+                          <p>09/07/2024, 11.26 am</p><br></br>
+                          <strong>Diagnosis:</strong>
+                          <p>Stroke</p><br></br>
+                          <strong>Diagnosis Details:</strong>
+                          <p>Diagnosed with stroke, immediate treatment required to restore blood flow to the brain and minimize potential damage, followed by rehabilitation and long-term management</p><br></br>
+                          <strong>Medications Prescribed:</strong> 
+                          <p>Antiplatelet Agent:
+
+Aspirin 81 mg orally once daily.
+Clopidogrel (Plavix) 75 mg orally once daily if the patient is allergic to aspirin.
+Anticoagulant (if indicated):
+
+Warfarin (Coumadin) 5 mg orally once daily, adjusted based on INR levels.
+Dabigatran (Pradaxa) 150 mg orally twice daily (alternative to warfarin).
+Antihypertensive (if needed):
+
+Lisinopril 10 mg orally once daily to control blood pressure.
+Amlodipine 5 mg orally once daily.
+Statin:
+
+Atorvastatin (Lipitor) 40 mg orally once daily at bedtime to manage cholesterol levels.
+Neuroprotective Agent (optional and under doctor's discretion):
+
+Citicoline 500 mg orally twice daily.
+Thrombolytic Therapy (for acute ischemic stroke, administered in hospital settings):
+
+Alteplase (tPA) 0.9 mg/kg IV (10% as a bolus, the remainder over 60 minutes), administered within 4.5 hours of symptom onset.
+                          </p>
+                        </div>)}
                       </div>
                   </div>
                   
@@ -608,7 +667,9 @@ export default function Home() {
             <label for="birthday"><strong>Consultation Date:</strong></label>
             <input type="date" id="birthday" name="birthday" className="p-2 border rounded-md w-full mb-4"></input>
 
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md">Save and Record New Medical Record</button>
+            <button onClick={handleSavedAllowAccess} className="bg-blue-500 text-white px-4 py-2 rounded-md">            
+            Record new Medical Record
+          </button>
           </div>
         )}
       </div>

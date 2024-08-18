@@ -163,6 +163,16 @@ export default function Home() {
     }
   };
 
+  const [isAccessAllowed, setIsAccessAllowed] = useState(false);
+
+  const handleAllowAccess = () => {
+    setIsAccessAllowed(true);
+  };
+
+  const handleRemoveAccess = () => {
+    setIsAccessAllowed(false);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center ">
         {/* navigation  */}
@@ -183,7 +193,7 @@ export default function Home() {
                       <li>Patient Log</li>
                     </Link>
                     <Link href="/doctorInfo">
-                      <li>Doctors Information</li>
+                      <li>Doctors Directory</li>
                     </Link>
                 </ul>
 
@@ -360,36 +370,45 @@ export default function Home() {
             <option>Dr Ang Lee</option>
             <option>Dr Azula</option>
           </select>
-          <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">Allow Access</button>
+            
+          <button onClick={handleAllowAccess} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">
+          Allow Access
+        </button>
         </div>
       </div>
 
       {/* Doctor Access */}
-      <div style={{borderStyle: 'solid', borderWidth: '1px', borderColor: 'gray'}} className="mb-6 rounded-md">
-      <div className="bg-gray-100 p-4 rounded-md"><h2 className="text-xl font-semibold pb-4 border-b border-gray-300">Doctor Accessed</h2></div>
-        <div className="bg-gray-100 p-4 rounded-md">
-          <table className="min-w-full bg-white border rounded-md">
-            <thead>
-              <tr>
-                <th className="text-left py-2 px-4 border-b">Doctor</th>
-                <th className="text-left py-2 px-4 border-b">Public Key</th>
-                <th className="text-left py-2 px-4 border-b">Action</th>
-              </tr>
-            </thead>
+      <div style={{ borderStyle: 'solid', borderWidth: '1px', borderColor: 'gray' }} className="mb-6 rounded-md">
+      <div className="bg-gray-100 p-4 rounded-md">
+        <h2 className="text-xl font-semibold pb-4 border-b border-gray-300">Doctor Accessed</h2>
+        
+      </div>
+      <div className="bg-gray-100 p-4 rounded-md">
+        <table className="min-w-full bg-white border rounded-md">
+          <thead>
+            <tr>
+              <th className="text-left py-2 px-4 border-b">Doctor</th>
+              <th className="text-left py-2 px-4 border-b">Client Key</th>
+              <th className="text-left py-2 px-4 border-b">Action</th>
+            </tr>
+          </thead>
+          {isAccessAllowed && (
             <tbody>
               <tr>
-                {/* change here  */}
                 <td className="py-2 px-4 border-b">Dr John Lee</td>
-                <td className="py-2 px-4 border-b">0xe96bae58c15b820a60bda0321d4d39c5a71b723</td>
+                <td className="py-2 px-4 border-b">0xb673a84b062a387925a210622bA66411Ef6e0a4e</td>
                 <td className="py-2 px-4 border-b">
-                  <button className="bg-red-500 text-white px-4 py-2 rounded-md">Remove access</button>
+                  <button onClick={handleRemoveAccess} className="bg-red-500 text-white px-4 py-2 rounded-md">
+                    Remove access
+                  </button>
                 </td>
               </tr>
               {/* Add more rows as needed */}
             </tbody>
-          </table>
-        </div>
+          )}
+        </table>
       </div>
+    </div>
 
 
     
